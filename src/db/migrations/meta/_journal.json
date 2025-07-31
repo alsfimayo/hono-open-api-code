@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1753947059748,
+      "tag": "0000_flowery_bloodaxe",
+      "breakpoints": true
+    }
+  ]
+}
