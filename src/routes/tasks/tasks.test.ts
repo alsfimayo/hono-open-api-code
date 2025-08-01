@@ -18,5 +18,25 @@ describe("Tasks list",()=>{
         const json=await response.json();
         //@//ts-ignore;
         expectTypeOf(json).toBeArray();
-    })
-})
+    });
+
+     it("validates the id param", async()=>{
+        const client=testClient(createApp().route("/",router));
+       const response= await client.tasks[':id'].$get({
+            param:{
+                id:"wat",
+            },
+       });
+       expect (response.status).toBe(422);
+    });
+
+    it("validates the body when we creating", async()=>{
+        const client=testClient(createApp().route("/",router));
+       const response= await client.tasks.$post({
+       json:{
+        name:"ali ahamd",
+       },           
+       });
+       expect (response.status).toBe(422);
+    });
+});
