@@ -16,14 +16,16 @@ describe("Tasks list",()=>{
         const client=testClient(createApp().route("/",router));
         const response= await client.tasks.$get();
         const json=await response.json();
-        //@//ts-ignore;
+        // @ts-ignore;
         expectTypeOf(json).toBeArray();
     });
 
      it("validates the id param", async()=>{
         const client=testClient(createApp().route("/",router));
-       const response= await client.tasks[':id'].$get({
-            param:{
+       
+        const response= await client.tasks[':id'].$get({
+           param:{
+            // @ts-ignore   
                 id:"wat",
             },
        });
@@ -33,7 +35,8 @@ describe("Tasks list",()=>{
     it("validates the body when we creating", async()=>{
         const client=testClient(createApp().route("/",router));
        const response= await client.tasks.$post({
-       json:{
+       //@ts-ignore
+        json:{
         name:"ali ahamd",
        },           
        });

@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "module": "ESNext",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "stripInternal": true,
+    
+    
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "module": "ESNext",
     "moduleResolution": "bundler",
     "paths": {
       "@/*":["./src/*"]
@@ -16,5 +21,7 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true
   },
-  "exclude": ["node_modules"]
+  
+  "exclude": ["node_modules", "dist"],
+  "include": ["src"]
 }

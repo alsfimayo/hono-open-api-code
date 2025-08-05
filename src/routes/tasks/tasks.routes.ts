@@ -69,7 +69,7 @@ export const getOne=createRoute({
 
 export const patch=createRoute({
   path:"/tasks/{id}",
-  method:"patch",
+  method:"post",
   request:{
     params:IdParamsSchema,
     body:jsonContentRequired(
@@ -87,13 +87,7 @@ export const patch=createRoute({
        notFoundSchema,     
       "task not found",
     ),
-    [HttpStatusCodes.UNPROCESSABLE_ENTITY]:jsonContentOneOf(
-      [
-        createErrorSchema(patchTaskSchema),
-        createErrorSchema(IdParamsSchema),
-      ],
-      "the validation error(s)"
-    ),
+   
   },
 });
 

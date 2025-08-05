@@ -1,12 +1,18 @@
 {
-  "name": "hono-pino",
+  "name": "@alsfimayo-cli/hono-pino",
   "version": "1.0.0",
   "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "pnpm run lint --fix",
-    "test": "vitest"
+    "test": "vitest",
+    "build": "tsc && rollup -c",
+    "build:types": "tsc && rollup -c"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.4",
@@ -28,9 +34,12 @@
   "devDependencies": {
     "@antfu/eslint-config": "^5.0.0",
     "@types/node": "^20.11.17",
+    "@types/rollup": "^0.54.0",
     "drizzle-kit": "^0.31.4",
     "eslint": "^9.31.0",
     "eslint-plugin-format": "^1.0.1",
+    "rollup": "^4.46.2",
+    "rollup-plugin-dts": "^6.2.1",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
