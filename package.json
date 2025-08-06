@@ -1,20 +1,27 @@
 {
   "name": "@alsfimayo-cli/hono-pino",
-  "version": "1.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alsfimayo/hono-open-api-code.git"
+  },
+  "version": "1.0.2",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "exports":{
+    ".":{
+      "require":"./dist/index.js",
+      "types":"./dist/index.d.ts",
+      "default":"./dist/index.js"
+    }
+  },
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "pnpm run lint --fix",
     "test": "vitest",
-    "build": "tsc && rollup -c",
-    "build:types": "tsc && rollup -c"
+    "build":"tsc"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.4",
@@ -36,8 +43,8 @@
   "devDependencies": {
     "@antfu/eslint-config": "^5.0.0",
     "@types/node": "^20.11.17",
-    "@types/rollup": "^0.54.0",
     "drizzle-kit": "^0.31.4",
+    "dts-bundle-generator": "^9.5.1",
     "eslint": "^9.31.0",
     "eslint-plugin-format": "^1.0.1",
     "rollup": "^4.46.2",
